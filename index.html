@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            background-color: #000000;
-            background-image: url('https://www.transparenttextures.com/patterns/hacker.png');
+            /* Fundo principal com a nova imagem */
+            background-color: #1a1a1a; /* Cor de backup */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/30B33j6/urban-photographer.jpg'); /* Sua nova foto de fundo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Imagem de fundo não rola */
             color: white;
             font-family: 'Roboto Mono', monospace;
             display: flex;
@@ -27,24 +31,31 @@
             text-align: center;
             max-width: 600px;
             width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para o conteúdo para melhor leitura */
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Sombra para dar profundidade */
+            backdrop-filter: blur(4px); /* Efeito de vidro fosco */
+            z-index: 1;
         }
         .profile-pic {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
-            border: 3px solid #ff00ff;
-            box-shadow: 0 0 20px #ff00ff;
+            border: 3px solid #00ffff; /* Borda ciano para combinar com os botões */
+            box-shadow: 0 0 20px #00ffff;
         }
         h1 {
             font-size: 2.5em;
-            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
             margin: 0;
         }
         p {
             font-size: 1.2em;
-            color: #00ffff;
-            text-shadow: 0 0 5px #00ffff;
+            color: #cccccc;
             margin-top: 5px;
             margin-bottom: 30px;
         }
@@ -55,9 +66,9 @@
             box-shadow: 0 0 15px #00ffff;
             padding: 15px 25px;
             text-decoration: none;
-            display: flex; /* NOVO: Para alinhar o ícone e o texto */
-            align-items: center; /* NOVO: Alinha verticalmente */
-            justify-content: center; /* NOVO: Alinha horizontalmente */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 15px auto;
             border-radius: 10px;
             max-width: 90%;
@@ -70,10 +81,9 @@
             color: #000000;
             transform: scale(1.05);
         }
-        /* NOVO: Estilo para os ícones dentro dos botões */
         .link-button i {
-            margin-right: 15px; /* Espaço entre o ícone e o texto */
-            font-size: 1.2em; /* Tamanho do ícone */
+            margin-right: 15px;
+            font-size: 1.2em;
         }
     </style>
 </head>
