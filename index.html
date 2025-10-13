@@ -93,6 +93,26 @@ h1 {
   fill: #00ffff;
   filter: drop-shadow(0 0 5px #00ffff);
 }
+
+/* Título e subtítulo no botão */
+.text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.text-content .title {
+  font-size: 1rem;
+}
+
+.text-content .subtitle {
+  font-size: 0.75rem;
+  color: #00ffff;
+  opacity: 0.85;
+  text-shadow: 0 0 6px #00ffff;
+  margin-top: 2px;
+}
 </style>
 </head>
 <body>
@@ -112,19 +132,24 @@ h1 {
       Fale comigo no Telegram
     </a>
 
-    <!-- Baixador de redes sociais -->
+    <!-- Baixador XPRO de Vídeos -->
     <a href="https://baixadorxpro.onrender.com" class="link" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M480 352h-96v-32h96a16 16 0 0 1 16 16v160a16 16 0 0 1-16 16H32a16 16 0 0 1-16-16V336a16 16 0 0 1 16-16h96v32H48v128h416V352zM272 32v269.49l73.37-73.37L368 256l-112 112L144 256l22.63-22.63L240 301.49V32z"/></svg>
-      Baixar Redes Sociais (Kwai, TikTok, Facebook)
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M480 352h-96v-32h96a16 16 0 0 1 16 16v160a16 16 0 0 1-16 16H32a16 16 0 0 1-16-16V336a16 16 0 0 1 16-16h96v32H48v128h416V352zM272 32v269.49l73.37-73.37L368 256l-112 112L144 256l22.63-22.63L240 301.49V32z"/>
+      </svg>
+      <div class="text-content">
+        <span class="title">🎬 Baixador XPRO de Vídeos</span>
+        <span class="subtitle">Baixe vídeos do Kwai, TikTok e Facebook</span>
+      </div>
     </a>
 
-    <!-- Encurtador de links -->
+    <!-- Encurtador de Links -->
     <a href="https://mlklads.onrender.com" class="link" target="_blank" rel="noopener">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M497.9 64.3L393.7 168.5c-8.8 8.8-8.8 23 0 31.8s23 8.8 31.8 0l104.2-104.2c35.4-35.4 92.8-35.4 128.2 0s35.4 92.8 0 128.2L553.7 330.5c-35.4 35.4-92.8 35.4-128.2 0c-8.8-8.8-23-8.8-31.8 0s-8.8 23 0 31.8c52.9 52.9 138.9 52.9 191.8 0l104.2-104.2c52.9-52.9 52.9-138.9 0-191.8s-138.9-52.9-191.8 0zM142.3 181.5c35.4-35.4 92.8-35.4 128.2 0c8.8 8.8 23 8.8 31.8 0s8.8-23 0-31.8c-52.9-52.9-138.9-52.9-191.8 0L6.3 253.9c-52.9 52.9-52.9 138.9 0 191.8s138.9 52.9 191.8 0L302.3 341.5c8.8-8.8 8.8-23 0-31.8s-23-8.8-31.8 0L166.3 414c-35.4 35.4-92.8 35.4-128.2 0s-35.4-92.8 0-128.2L142.3 181.5z"/></svg>
       Encurtador de Links MLK
     </a>
 
-    <!-- Gerador de nomes e endereços -->
+    <!-- Gerador de Nomes e Endereços -->
     <a href="https://geradorxpro.vercel.app" class="link" target="_blank" rel="noopener">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H352c35.3 0 64-28.7 64-64V128L320 0H96zm96 160c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48zm-64 208c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v16H128V368zM320 128V0l96 96H320z"/></svg>
       Gerador de Nomes e Endereços
