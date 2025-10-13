@@ -29,7 +29,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* Alterado para 0 */
+            z-index: 0;
             opacity: 0.6;
         }
         .container {
@@ -42,8 +42,8 @@
             border: 1px solid rgba(0, 255, 255, 0.4);
             box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
             backdrop-filter: blur(4px);
-            z-index: 1; /* Garante que o conteúdo fique na frente do canvas */
-            position: relative; /* Necessário para o z-index funcionar corretamente */
+            z-index: 1;
+            position: relative;
         }
         .profile-pic {
             width: 150px;
@@ -128,20 +128,20 @@
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-        const chars = katakana + latin + nums;
-
+        let columns;
+        let drops = [];
         const fontSize = 16;
-        const columns = Math.ceil(canvas.width / fontSize);
-        const drops = [];
+        const chars = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
+        function initializeMatrix() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            columns = Math.ceil(canvas.width / fontSize);
+            drops = [];
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
         }
 
         function draw() {
@@ -152,6 +152,7 @@
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
+                if (!drops[i]) continue; // Pula colunas indefinidas durante o redimensionamento
                 const text = chars.charAt(Math.floor(Math.random() * chars.length));
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
@@ -161,21 +162,14 @@
                 drops[i]++;
             }
         }
-
-        const intervalId = setInterval(draw, 35);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            const newColumns = Math.ceil(canvas.width / fontSize);
-            // Ajusta o array de drops para o novo tamanho
-            while(drops.length > newColumns) {
-                drops.pop();
-            }
-            while(drops.length < newColumns) {
-                drops.push(1);
-            }
-        });
+        
+        // Roda a inicialização DEPOIS que a página inteira carregar, garantindo o tamanho correto
+        window.onload = () => {
+            initializeMatrix();
+            setInterval(draw, 35);
+            // Adiciona um listener para redimensionar a animação se a tela mudar de tamanho
+            window.addEventListener('resize', initializeMatrix);
+        };
     </script>
 </body>
 </html>
