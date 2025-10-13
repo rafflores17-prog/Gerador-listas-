@@ -10,12 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            /* Fundo principal com a nova imagem */
-            background-color: #1a1a1a; /* Cor de backup */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/30B33j6/urban-photographer.jpg'); /* Sua nova foto de fundo */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Imagem de fundo não rola */
+            background-color: #000; /* Fundo preto para o efeito Matrix */
             color: white;
             font-family: 'Roboto Mono', monospace;
             display: flex;
@@ -26,17 +21,28 @@
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
+            overflow: hidden; /* Garante que o canvas não crie barras de rolagem */
+        }
+        /* Estilo para o canvas do Matrix */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Fica atrás de todo o conteúdo */
+            opacity: 0.6; /* Transparência para o fundo */
         }
         .container {
             text-align: center;
             max-width: 600px;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para o conteúdo para melhor leitura */
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro para o conteúdo para melhor leitura */
             padding: 30px 20px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Sombra para dar profundidade */
-            backdrop-filter: blur(4px); /* Efeito de vidro fosco */
+            border: 1px solid rgba(0, 255, 255, 0.4); /* Borda ciano neon */
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); /* Brilho maior para o container */
+            backdrop-filter: blur(4px);
             z-index: 1;
         }
         .profile-pic {
@@ -44,18 +50,19 @@
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
-            border: 3px solid #00ffff; /* Borda ciano para combinar com os botões */
-            box-shadow: 0 0 20px #00ffff;
+            border: 3px solid #ff00ff; /* Borda magenta neon */
+            box-shadow: 0 0 20px #ff00ff;
         }
         h1 {
             font-size: 2.5em;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            color: #00ff00; /* Texto verde neon para o nome */
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
             margin: 0;
         }
         p {
             font-size: 1.2em;
-            color: #cccccc;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
             margin-top: 5px;
             margin-bottom: 30px;
         }
@@ -88,6 +95,8 @@
     </style>
 </head>
 <body>
+    <canvas id="matrix-canvas"></canvas>
+
     <div class="container">
         <img src="avatar.jpg" alt="Foto de Perfil EricDfp" class="profile-pic">
         
@@ -113,5 +122,55 @@
             <i class="fa-solid fa-table-list"></i> Gerador de Dados X-PRO
         </a>
     </div>
+
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const chars = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Cor verde neon
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35); // Velocidade da chuva de códigos
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Reinicia as drops para se ajustar ao novo tamanho
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+        });
+    </script>
 </body>
 </html>
