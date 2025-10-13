@@ -1,180 +1,177 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EricDfp - Links</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            background-color: #000;
-            color: white;
-            font-family: 'Roboto Mono', monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-        #matrix-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw; /* Usando vw/vh para maior robustez */
-            height: 100vh;
-            z-index: 0;
-            opacity: 0.6;
-        }
-        .container {
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 30px 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 255, 0.4);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 1;
-            position: relative;
-        }
-        .profile-pic, h1, p, a.link-button {
-            /* Adiciona uma pequena sombra preta para destacar do fundo */
-            text-shadow: 0 0 5px black, 0 0 10px black;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid #ff00ff;
-            box-shadow: 0 0 20px #ff00ff, 0 0 10px black;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #00ff00;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 5px black;
-            margin: 0;
-        }
-        p {
-            font-size: 1.2em;
-            color: #00ffff;
-            text-shadow: 0 0 5px #00ffff, 0 0 5px black;
-            margin-top: 5px;
-            margin-bottom: 30px;
-        }
-        a.link-button {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 15px #00ffff;
-            padding: 15px 25px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 15px auto;
-            border-radius: 10px;
-            max-width: 90%;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-        a.link-button:hover {
-            background-color: #00ffff;
-            color: #000000;
-            transform: scale(1.05);
-        }
-        .link-button i {
-            margin-right: 15px;
-            font-size: 1.2em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EricDfp Links</title>
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      height: 100vh;
+    }
+
+    /* ===== MATRIX CANVAS ===== */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.25; /* suaviza o fundo */
+      pointer-events: none;
+    }
+
+    /* ===== CONTAINER PRINCIPAL ===== */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      margin: 60px auto;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    /* ===== FOTO DE PERFIL ===== */
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      border: 4px solid #ff00ff;
+      box-shadow: 0 0 15px #ff00ff;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ===== NOME E USERNAME ===== */
+    h1 {
+      font-size: 2.2rem;
+      color: #00ff66;
+      text-shadow: 0 0 15px #00ff66;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: #00cfff;
+      font-weight: 500;
+      margin-bottom: 25px;
+      text-shadow: 0 0 8px #00cfff;
+    }
+
+    /* ===== BOTÕES ===== */
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 14px 10px;
+      margin: 12px 0;
+      border: 2px solid #00ffff;
+      border-radius: 12px;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 12px #00ffff;
+    }
+
+    .link-btn:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 25px #00ffff;
+      transform: scale(1.02);
+    }
+
+    /* Ícones dentro dos botões */
+    .link-btn i {
+      font-size: 1.2rem;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .container {
+        margin: 40px 15px;
+        padding: 25px 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-    <canvas id="matrix-canvas"></canvas>
 
-    <div class="container">
-        <img src="avatar.jpg" alt="Foto de Perfil EricDfp" class="profile-pic">
-        
-        <h1>EricDimitri</h1>
-        <p>@ericDfp</p>
-        
-        <a href="https://t.me/ericDfp" target="_blank" class="link-button">
-            <i class="fa-brands fa-telegram"></i> Fale Comigo no Telegram
-        </a>
-        <a href="https://www.tiktok.com/@moviepixelofc" target="_blank" class="link-button">
-            <i class="fa-brands fa-tiktok"></i> Siga-me no TikTok
-        </a>
-        <a href="https://k.kwai.com/u/@CINEMULHER/CovZxtbn" target="_blank" class="link-button">
-            <i class="fa-solid fa-video"></i> Acompanhe no Kwai
-        </a>
-        <a href="https://baixadorxpro.onrender.com/" target="_blank" class="link-button">
-            <i class="fa-solid fa-download"></i> Baixador de Vídeos X-PRO
-        </a>
-        <a href="https://mlklads.onrender.com" target="_blank" class="link-button">
-            <i class="fa-solid fa-link"></i> Encurtador de Links MLK
-        </a>
-        <a href="http://geradorxpro.vercel.app" target="_blank" class="link-button">
-            <i class="fa-solid fa-table-list"></i> Gerador de Dados X-PRO
-        </a>
-    </div>
+  <!-- FUNDO MATRIX -->
+  <canvas id="matrix-canvas"></canvas>
 
-    <script>
-        // Espera o DOM estar pronto antes de fazer qualquer coisa
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const canvas = document.getElementById('matrix-canvas');
-            const ctx = canvas.getContext('2d');
+  <!-- CONTEÚDO -->
+  <div class="container">
+    <img src="https://i.imgur.com/jRWm8Pa.jpeg" alt="EricDfp" class="profile-pic">
+    <h1>EricDimitri</h1>
+    <p>@ericDfp</p>
 
-            let columns;
-            let drops = [];
-            const fontSize = 16;
-            const chars = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    <a href="https://t.me/ericdfp" class="link-btn"><i>💬</i>Fale Comigo no Telegram</a>
+    <a href="https://www.tiktok.com/@ericdfp" class="link-btn"><i>🎵</i>Siga-me no TikTok</a>
+    <a href="https://www.kwai.com/@ericdfp" class="link-btn"><i>🎥</i>Acompanhe no Kwai</a>
+    <a href="https://baixadorxpro.onrender.com" class="link-btn"><i>⬇️</i>Baixador de Vídeos X-PRO</a>
+    <a href="https://encurtadormlk.onrender.com" class="link-btn"><i>🔗</i>Encurtador de Links MLK</a>
+    <a href="https://geradordadosxpro.onrender.com" class="link-btn"><i>📊</i>Gerador de Dados X-PRO</a>
+  </div>
 
-            function initializeMatrix() {
-                // Seta o tamanho da área de desenho do canvas para o tamanho real da tela
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                
-                columns = Math.ceil(canvas.width / fontSize);
-                drops = [];
-                for (let x = 0; x < columns; x++) {
-                    // Inicia as "gotas" em posições aleatórias para um efeito mais natural
-                    drops[x] = 1 + Math.random() * 100; 
-                }
-            }
+  <!-- SCRIPT MATRIX -->
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
 
-            function draw() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-                ctx.fillStyle = '#0F0';
-                ctx.font = fontSize + 'px monospace';
+    const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
 
-                for (let i = 0; i < drops.length; i++) {
-                    if (!drops[i]) continue;
-                    const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    const drops = Array(Math.floor(columns)).fill(1);
 
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    drops[i]++;
-                }
-            }
-            
-            initializeMatrix();
-            setInterval(draw, 40); // Levemente mais devagar para performance
-            window.addEventListener('resize', initializeMatrix);
-        });
-    </script>
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ff66';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 40);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
 </body>
 </html>
