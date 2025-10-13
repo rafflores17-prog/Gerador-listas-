@@ -3,21 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Links</title>
+    <title>EricDfp - Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; background-color: #121212; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { text-align: center; }
-        .profile-pic { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px; }
-        a { background-color: #007bff; color: white; padding: 15px 25px; text-decoration: none; display: block; margin: 10px auto; border-radius: 5px; max-width: 300px; }
+        body {
+            /* Fundo estilo Matrix */
+            background-color: #000000;
+            background-image: url('https://www.transparenttextures.com/patterns/hacker.png');
+            color: white;
+            font-family: 'Roboto Mono', monospace; /* Nova fonte */
+            display: flex;
+            flex-direction: column; /* Organiza os itens verticalmente */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #ff00ff; /* Borda neon magenta */
+            box-shadow: 0 0 20px #ff00ff; /* Efeito de brilho */
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; /* Brilho no texto principal */
+            margin: 0;
+        }
+        p {
+            font-size: 1.2em;
+            color: #00ffff; /* Ciano neon para o subtítulo */
+            text-shadow: 0 0 5px #00ffff;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+        a.link-button {
+            background-color: rgba(255, 255, 255, 0.1); /* Botão semi-transparente */
+            color: white;
+            border: 2px solid #00ffff; /* Borda ciano neon */
+            box-shadow: 0 0 15px #00ffff;
+            padding: 15px 25px;
+            text-decoration: none;
+            display: block;
+            margin: 15px auto;
+            border-radius: 10px;
+            max-width: 90%;
+            transition: all 0.3s ease; /* Transição suave */
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        a.link-button:hover {
+            background-color: #00ffff; /* Muda a cor de fundo no hover */
+            color: #000000; /* Texto preto para contraste */
+            transform: scale(1.05); /* Efeito de zoom */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Foto de Perfil" class="profile-pic">
-        <h1>EricDfp</h1>
-        <a href="https://t.me/ericDfp" target="_blank">Grupo Telegram</a>
-        <a href="https://instagram.com" target="_blank">Meu Instagram</a>
-        <a href="https://linkedin.com" target="_blank">Meu LinkedIn</a>
+        <img src="avatar.jpg" alt="Foto de Perfil EricDfp" class="profile-pic">
+        
+        <h1>EricDimitri</h1>
+        <p>@ericDfp</p>
+        
+        <a href="https://t.me/ericDfp" target="_blank" class="link-button">Fale Comigo no Telegram</a>
+        <a href="https://baixadorxpro.onrender.com/" target="_blank" class="link-button">Baixador de Vídeos X-PRO</a>
+        <a href="https://mlklads.onrender.com" target="_blank" class="link-button">Encurtador de Links MLK</a>
+        <a href="http://geradorxpro.vercel.app" target="_blank"="link-button">Gerador de Dados X-PRO</a>
     </div>
 </body>
 </html>
