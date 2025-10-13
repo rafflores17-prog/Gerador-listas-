@@ -1,181 +1,122 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EricDfp Links</title>
-<style>
-/* === Fundo Matrix === */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  background: black;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-}
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background: black;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EricDfp Links</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* === Conteúdo Principal === */
-.container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+      background-image: url('https://i.imgur.com/4QfKuz1.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-.avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #ff00ff;
-  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-  margin-bottom: 20px;
-}
+    .profile-pic {
+      margin-top: 60px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #00ffc8;
+      box-shadow: 0 0 25px #ff00ff;
+      object-fit: cover;
+    }
 
-h1 {
-  font-size: 2.5rem;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-  margin: 10px 0;
-}
+    h1 {
+      font-size: 36px;
+      color: #00ff88;
+      text-shadow: 0 0 15px #00ff88;
+      margin: 15px 0 25px;
+    }
 
-.links {
-  width: 100%;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 85%;
+      max-width: 400px;
+      padding: 14px;
+      margin: 12px 0;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00ffff;
+      border-radius: 14px;
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00ffff;
+      transition: 0.3s;
+    }
 
-.link {
-  background: rgba(0,0,0,0.75);
-  border: 2px solid #00ffff;
-  border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  text-shadow: 0 0 10px #00ffff;
-  box-shadow: 0 0 10px #00ffff;
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+    .link-card:hover {
+      background: rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 25px #00ffff;
+      transform: scale(1.05);
+    }
 
-.link:hover {
-  background: #00ffff22;
-  box-shadow: 0 0 20px #00ffff;
-  transform: scale(1.03);
-}
+    .icon {
+      width: 26px;
+      height: 26px;
+      fill: #00eaff;
+      margin-bottom: 6px;
+    }
 
-.link svg {
-  width: 20px;
-  height: 20px;
-  fill: #00ffff;
-}
-</style>
+    .subtext {
+      font-size: 13px;
+      color: #00eaff;
+      text-shadow: 0 0 6px #00eaff;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 30px;
+      }
+      .link-card {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Fundo Matrix -->
-<canvas id="matrix"></canvas>
-
-<!-- Conteúdo -->
-<div class="container">
-  <img src="avatar.jpg" alt="Avatar" class="avatar">
+  <img src="avatar.jpg" alt="EricDfp" class="profile-pic" />
   <h1>EricDimitri</h1>
 
-  <div class="links">
-    <!-- Grupo no Telegram -->
-    <a href="https://t.me/ericDfp" class="link" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-        <path d="M248,8C111,8,0,119,0,256s111,248,248,248,248-111,248-248S385,8,248,8Zm121.1,169.9-40.7,191.3c-3.1,13.9-11.3,17.4-22.8,10.8l-63-46.4-30.4,29.2c-3.3,3.3-6.1,6.1-12.5,6.1l4.5-64.2L332.6,198c5.2-4.5-1.1-7-8.1-2.5L176.1,285.6,114,266.2c-13.4-4.2-13.7-13.4,2.8-19.8l233.7-90.1C362.3,150.9,374.8,158.5,369.1,177.9Z"/>
-      </svg>
-      Grupo no Telegram
-    </a>
+  <!-- Grupo no Telegram -->
+  <a href="https://t.me/ericDfp" class="link-card" target="_blank" rel="noopener">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.7 169.2l-38.4 181c-2.8 12.4-10.2 15.4-20.6 9.6l-57-42.1-27.5 26.5c-3 3-5.5 5.5-11.2 5.5l4-58.3 106-95.6c4.6-4.1-1-6.4-7.1-2.3L164 280.5l-55.3-17.3c-12-3.8-12.3-12-2.6-16.4l216.8-83.7c10.1-3.8 19 2.3 16.8 16.1z"/></svg>
+    Grupo no Telegram
+  </a>
 
-    <!-- Baixador XPRO -->
-    <a href="https://baixadorxpro.onrender.com" class="link" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path d="M480 352h-96v-32h96v32zm-128 0H160v-32h192v32zm-224 0H32v-32h96v32zm224 64H160v-32h192v32zm-224 0H32v-32h96v32zm352 0h-96v-32h96v32zm-176-96h-64V96h64v224z"/>
-      </svg>
-      Baixador XPRO de Vídeos
-    </a>
+  <!-- Baixador XPRO de Vídeos -->
+  <a href="https://ericdfpxproads.onrender.com/?destino=" class="link-card" target="_blank" rel="noopener">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c9.2-9.2 11.9-22.9 6.9-34.9S367.3 256 352 256H272V64c0-17.7-14.3-32-32-32H144c-17.7 0-32 14.3-32 32v192H32c-15.3 0-29.1 9.2-34.9 23.7s-2.3 25.7 6.9 34.9l160 160z"/></svg>
+    Baixador XPRO de Vídeos
+    <span class="subtext">Baixe vídeos do Kwai, TikTok e Facebook</span>
+  </a>
 
-    <!-- Encurtador de Links -->
-    <a href="https://mlklads.onrender.com" class="link" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-        <path d="M172.2 131.3c17.2-17.2 45.1-17.2 62.3 0s17.2 45.1 0 62.3l-41.4 41.4c-8.6 8.6-8.6 22.5 0 31l41.4 41.4c17.2 17.2 17.2 45.1 0 62.3s-45.1 17.2-62.3 0l-41.4-41.4c-43-43-43-112.7 0-155.7l41.4-41.4zM467.8 380.7c-17.2 17.2-45.1 17.2-62.3 0s-17.2-45.1 0-62.3l41.4-41.4c8.6-8.6 8.6-22.5 0-31l-41.4-41.4c-17.2-17.2-17.2-45.1 0-62.3s45.1-17.2 62.3 0l41.4 41.4c43 43 43 112.7 0 155.7l-41.4 41.4z"/>
-      </svg>
-      Encurtador de Links MLK
-    </a>
+  <!-- Encurtador de Links MLK -->
+  <a href="https://mlklads.onrender.com" class="link-card" target="_blank" rel="noopener">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M172.1 131.8C228.6 75.3 321.4 75.3 377.9 131.8L411 164.9c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L423.2 86.6C343.9 7.3 206.1 7.3 126.8 86.6S7.3 306.1 86.6 385.4L118.1 417c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L97.9 306.1C41.4 249.6 41.4 156.9 97.9 100.4zM523.4 126.6L491.9 95.1c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L542.1 236c56.5 56.5 56.5 149.2 0 205.7-56.5 56.5-149.2 56.5-205.7 0L401 417c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l31.5 31.5c79.3 79.3 217.1 79.3 296.4 0s79.3-217.1 0-296.4z"/></svg>
+    Encurtador de Links MLK
+  </a>
 
-    <!-- Gerador de Dados -->
-    <a href="https://geradorxpro.vercel.app" class="link" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-        <path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM224 0v128h128L224 0z"/>
-      </svg>
-      Gerador de Nomes e Dados XPRO
-    </a>
-  </div>
-</div>
-
-<!-- Script do Efeito Matrix -->
-<script>
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-
-const letters = 'アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#00FF00';
-  ctx.font = fontSize + 'px monospace';
-
-  for (let i = 0; i < drops.length; i++) {
-    const text = letters.charAt(Math.floor(Math.random() * letters.length));
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
-    }
-    drops[i]++;
-  }
-}
-
-setInterval(draw, 35);
-
-window.addEventListener('resize', () => {
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-});
-</script>
-
+  <!-- Gerador de Nomes e Endereços -->
+  <a href="https://geradorxpro.vercel.app" class="link-card" target="_blank" rel="noopener">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zM31.9 464c0-88.4 71.6-160 160-160h64c88.4 0 160 71.6 160 160c0 26.5-21.5 48-48 48H79.9c-26.5 0-48-21.5-48-48z"/></svg>
+    Gerador de Nomes e Endereços
+  </a>
 </body>
 </html>
